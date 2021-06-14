@@ -1,0 +1,12 @@
+{
+  "name": "geocoders-cliente",
+  "displayName": "geocoders-cliente",
+  "expo": {
+    "name": "geocoders-cliente",
+    "slug": "geocoders-cliente",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
