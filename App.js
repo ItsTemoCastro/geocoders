@@ -1,21 +1,36 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { StatusBar } from 'expo-status-bar'
+import { Text, View, StyleSheet } from 'react-native'
+import {NavigationContainer,StackActions} from '@react-navigation/native'//npm install @react-navigation/native
+import {createStackNavigator} from '@react-navigation/stack';//expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+import {firebaseApp} from "./Database/firebase"
 
-export default function App() {
+const Stack = createStackNavigator();
+
+import GeoLocationScreen from './views/GeoLocationScreen'
+
+function MyStack() {
+  return(
+    <Stack.Navigator>
+        <Stack.Screen name="GeoLocationScreen" component={GeoLocationScreen} options={{title: 'Geolocalización de usuario'}} />
+    </Stack.Navigator>
+  )
+}
+
+function App(){
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <NavigationContainer>
+         <MyStack />
+    </NavigationContainer>
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+  container:{
+    flex:1
+  }
+   
+})
+
+export default App;
+
