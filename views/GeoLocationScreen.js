@@ -8,9 +8,8 @@ const GeoLocationScreen = (props) => {
     const [location, setLocation] = useState({
         latitude: 0,
         longitude: 0,
-        nameUser: 'Cliente',
     });
-    const userid = 'rSz5YEOaVpv4VqWhm8gn';
+    
     const [user, setUser] = useState([]);
 
     const [errorMsg, setErrorMsg] = useState(null);
@@ -32,7 +31,7 @@ const getLocation = async () => {
     setLocation({
         latitude: ubicacion.coords.latitude,
         longitude: ubicacion.coords.longitude,
-        nameUser: 'Cliente',
+        
 
     });
     // alert(location.coords.latitude);
@@ -44,17 +43,17 @@ const getLocation = async () => {
        
     }, []);
 
-    const saveLocationUser = async () => {
+    const saveLocationUser = async (id) => {
         try {
-        const id = 'rSz5YEOaVpv4VqWhm8gn';
+        
           const users = [];
           await firebase.conexion
-          .collection('user') 
-          .doc('rSz5YEOaVpv4VqWhm8gn')
+          .collection('usersAdmin') 
+          .doc(id)
           .update({
             latitud: location.latitude,
             longitud: location.longitude,
-            name: location.nameUser,  
+             
           })
           .then(() => {
                 console.log('user updated!');
@@ -104,7 +103,7 @@ const getLocation = async () => {
                 </View>
                 <View>
                     <Button title="Guardar"
-                        onPress={() => saveLocationUser()}
+                        onPress={() => saveLocationUser(props.route.params.userId)}
                     />
                 </View>
             </View>

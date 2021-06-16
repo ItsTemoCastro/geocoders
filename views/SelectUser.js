@@ -59,14 +59,18 @@ function SelectUser(props) {
             //const users =[];
                 querySnapshot.forEach((doc) => {
                 const {
-                  name,
+                  latitud,
+                  longitud,
                   mail,
+                  name,
                   phone,
                 } = doc.data();             
                     usersData.push({
                         id: doc.id,
-                        name,
+                        latitud,
+                        longitud,
                         mail,
+                        name,
                         phone,
                       });
                       setGetData(usersData); 
@@ -102,17 +106,12 @@ function SelectUser(props) {
                     onChangeText={(value) => handleChangeText('password', value)}
                 />
                  <View>
-                    <Button title="ver datos"
+                    <Button title="Ingresar"
                     // onPress={() => login(dataUser.email)}
                     onPress={() => show()}
                     />
                 </View>
-                <View>
-                    <Button title="login"
-                    onPress={() => aver()}
-                    // onPress={() => show()}
-                    />
-                </View>
+                
             </View>
         </View>
     );
