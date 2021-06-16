@@ -88,6 +88,7 @@ const getLocation = async () => {
     
     return (
         <ScrollView>
+            <Text h1>user: {props.route.params.name}</Text>
             <View style={styles.container}>
                 <Text h1>Latitud:</Text>
                 <Text style={styles.paragraph}>{location.latitude}</Text>

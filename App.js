@@ -8,10 +8,12 @@ import {firebaseApp} from "./Database/firebase"
 const Stack = createStackNavigator();
 
 import GeoLocationScreen from './views/GeoLocationScreen'
+import SelectUser from './views/SelectUser'
 
 function MyStack() {
   return(
     <Stack.Navigator>
+        <Stack.Screen name="SelectUser" component={SelectUser} options={{title: 'Seleccion de usuario'}} />
         <Stack.Screen name="GeoLocationScreen" component={GeoLocationScreen} options={{title: 'Geolocalización de usuario'}} />
     </Stack.Navigator>
   )
